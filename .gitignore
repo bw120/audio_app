@@ -1,0 +1,8 @@
+# directories
+node_modules/
+dist/
+
+# files/extensions
+*.sublime-project
+*.sublime-workspace
+.DS_Store
