@@ -5,6 +5,6 @@ and connecting with various network audio sources including Airplay, Bluetooth.
 ## Getting Started
 * Run `npm install`
 * webpack options
-** `npm run build` - builds production assets
-** `npm run watch` - builds, starts electron app, refreshes app as you make changes
-** `npm run start` - builds and starts app
+  * `npm run build` builds production assets
+  * `npm run watch` builds, starts electron app, refreshes app as you make changes
+  * `npm run start` builds and starts app
