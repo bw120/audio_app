@@ -30,7 +30,7 @@ module.exports = {
     ]),
     new NodemonPlugin({
       watch: path.resolve('./dist'),
-      exec: ' electron ./dist/main.js'
+      exec: 'electron ./dist/main.js'
     })
   ],
 };

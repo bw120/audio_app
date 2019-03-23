@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import ControlBar from "./interface/ControlBar.jsx";
+const { ipcRenderer } = require('electron');
 
 class App extends Component {
   constructor() {
     super();
   }
-  render() {
-    const arr = ["one", "two", "three"];
 
+
+  render() {
     return (
       <div>
         <h1>React is working!!!!</h1>
-        <ul>{[...arr].map((item, key) => <li key={key}>{item}</li>)}</ul>
+        <ControlBar/>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 const { app, BrowserWindow } = require('electron');
-var appRoot = require('app-root-path');
+const appRoot = require('app-root-path');
+const { ipcMain } = require('electron');
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+import VolumeControl from './modules/VolumeControl.js';
+
 let win
 
 function createWindow () {
@@ -10,9 +11,11 @@ function createWindow () {
   win = new BrowserWindow({ 
     width: 800, 
     height: 600,
+    frame: false,
+    // titleBarStyle: 'hidden'
   })
 
-  // and load the index.html of the app.
+  // load the index.html of the app.
   win.loadFile(appRoot + '/dist/ui/index.html')
 
   // Open the DevTools.
@@ -20,16 +23,11 @@ function createWindow () {
 
   // Emitted when the window is closed.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// start up the window when Electron finishes loading
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
@@ -49,5 +47,4 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+VolumeControl();

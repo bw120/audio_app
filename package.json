@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js --mode production",
-    "watch": "webpack --config webpack.config.js --mode development --watch",
+    "watch": "webpack --config webpack.config.js --mode production --watch",
     "start": "webpack --config webpack.config.js --mode development && electron ./dist/main.js"
   },
   "author": "Ben Wright",
@@ -27,6 +27,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "app-root-path": "^2.1.0"
+    "app-root-path": "^2.1.0",
+    "system-control": "0.0.5"
   }
 }
