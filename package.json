@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js --mode production",
-    "watch": "webpack --config webpack.config.js --mode production --watch",
-    "start": "webpack --config webpack.config.js --mode development && electron ./dist/main.js"
+    "watch": "webpack --config webpack.config.js --mode development --watch",
+    "start": "webpack --config webpack.config.js --mode production && electron ./dist/main.js"
   },
   "author": "Ben Wright",
   "license": "ISC",
@@ -17,11 +17,16 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "copy-webpack-plugin": "^5.0.1",
+    "css-loader": "^2.1.1",
     "electron": "^4.0.8",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
     "nodemon-webpack-plugin": "^4.0.8",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"

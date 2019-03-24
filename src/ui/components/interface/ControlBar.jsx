@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 const { ipcRenderer } = require('electron');
-
+import styles from './ControlBar.module';
 const ControlBar = (props) => {
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const ControlBar = (props) => {
 
     return (
         <div>
-        <span>Volume</span> <a onClick={(e) => {changeVolume(e, "up")}}>Up</a> | 
+        <span className={styles.bold}>Volume</span> <a onClick={(e) => {changeVolume(e, "up")}}>Up</a> | 
         <a onClick={(e) => {changeVolume(e, "down")}}>Down</a> | 
         <a onClick={(e) => {changeVolume(e, "mute")}}>Mute</a>
       </div>
