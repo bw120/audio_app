@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import ControlBar from "./interface/ControlBar.jsx";
-import styles from './app.module';
 const { ipcRenderer } = require('electron');
+
+import ControlBar from "./interface/ControlBar.jsx";
+import StatusBar from "./interface/StatusBar.jsx";
+
+import styles from './styles/app.module';
 
 class App extends Component {
   constructor() {
@@ -12,8 +14,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className={styles.red}>React is working!!!!</h1>
+      <div className={styles.app}>
+        <StatusBar/>
+        <div className={styles.mainScreen}>
+          <h1 className={styles.red}>Main screen</h1>
+        </div>
+          
         <ControlBar/>
       </div>
     );
