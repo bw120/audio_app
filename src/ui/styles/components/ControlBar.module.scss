@@ -1,6 +1,17 @@
 .controlBar {
-	height: 20px;
+	height: 50px;
 	padding: 10px 15px;
-	font-size: 18px;
+	font-size: 25px;
 	border-top: 1px solid #eee;
+
+  .iconButton {
+    padding: 0 15px;
+  }
+
+  a,
+  span {
+    padding-bottom: 5px;
+    display: inline-block;
+    vertical-align: bottom;
+  }
 }

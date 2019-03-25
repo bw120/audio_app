@@ -1,9 +1,12 @@
+@import '../variables';
+
 .app {
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
 
 	.mainScreen {
-		height: calc(100% - 40px);
+		height: calc(#{$screenHeight} - 90px);
+    padding: 10px 15px;
 	}
 }
