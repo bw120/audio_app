@@ -2,15 +2,17 @@ const { app, BrowserWindow } = require('electron');
 const appRoot = require('app-root-path');
 const { ipcMain } = require('electron');
 
+const config = require(__dirname + "/config.js");
+
 import VolumeControl from './modules/VolumeControl.js';
 
 let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ 
-    width: 800, 
-    height: 480,
+  win = new BrowserWindow({
+    width: config.screen.width,
+    height: config.screen.height,
     frame: false,
     // titleBarStyle: 'hidden'
   })

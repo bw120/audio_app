@@ -1,6 +1,6 @@
 import React from "react";
 import Clock from "./Clock.jsx";
-import styles from '../styles/StatusBar.module';
+import styles from '../../styles/components/StatusBar.module';
 
 const StatusBar = (props) => {
     return (

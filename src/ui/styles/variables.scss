@@ -1,0 +1,6 @@
+// Get the data from the config file
+$height: get('screen.height');
+$width: get('screen.width');
+
+$screenHeight: $height + px;
+$screenWidth: $width + px;

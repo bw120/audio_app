@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 const { ipcRenderer } = require('electron');
-import styles from '../styles/ControlBar.module';
+import styles from '../../styles/components/ControlBar.module';
 
 const ControlBar = (props) => {
 
@@ -27,8 +27,8 @@ const ControlBar = (props) => {
 
     return (
         <div className={styles.controlBar}>
-        <span className={styles.bold}>Volume</span> <a onClick={(e) => {changeVolume(e, "up")}}>Up</a> | 
-        <a onClick={(e) => {changeVolume(e, "down")}}>Down</a> | 
+        <span className={styles.bold}>Volume</span> <a onClick={(e) => {changeVolume(e, "up")}}>Up</a> |
+        <a onClick={(e) => {changeVolume(e, "down")}}>Down</a> |
         <a onClick={(e) => {changeVolume(e, "mute")}}>Mute</a>
       </div>
     );
