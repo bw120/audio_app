@@ -7,8 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sass = require("node-sass");
 const sassUtils = require("node-sass-utils")(sass);
 const sassVars = require(__dirname + "/src/config.js");
+
+// Credit: https://itnext.io/sharing-variables-between-js-and-sass-using-webpack-sass-loader-713f51fa7fa0
 const convertStringToSassDimension = function(result) {
-    console.log(result);
     // Only attempt to convert strings
     if (typeof result !== "string") {
         return result;
@@ -58,6 +59,11 @@ module.exports = (env, argv) => {
             filename: '[name].js',
             path: path.resolve(__dirname, 'dist')
         },
+        target: "electron-renderer",
+        node: {
+          __dirname: false,
+          __filename: false
+        },
         module: {
             rules: [{
                 test: /\.(js|jsx)$/,
@@ -93,7 +99,6 @@ module.exports = (env, argv) => {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: isDevelopment,
-                            // Credit: https://itnext.io/sharing-variables-between-js-and-sass-using-webpack-sass-loader-713f51fa7fa0
                             functions: jsToSassVars
                         }
                     }
