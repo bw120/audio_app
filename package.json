@@ -17,9 +17,9 @@
     "build": "webpack --config webpack.config.js --mode production --define process.env.NODE_ENV='\"production\"'",
     "watch": "webpack --config webpack.config.js --mode development --watch --define process.env.NODE_ENV='\"development\"'",
     "start": "webpack --config webpack.config.js --mode production --define process.env.NODE_ENV='\"production\"' && electron ./dist/main.js",
-    "release-mac": "webpack --config webpack.config.js --define process.env.NODE_ENV='\"production\"' --mode production && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --icon=icons/icon.png --out=release-builds",
-    "release-rpi": "webpack --config webpack.config.js --define process.env.NODE_ENV='\"production\"' --mode production && electron-packager . car-audio --overwrite --asar --platform=linux --arch=armv7l --icon=icons/icon.png --prune=true --out=release-builds",
-    "release-linux": "webpack --config webpack.config.js --define process.env.NODE_ENV='\"production\"' --mode production && electron-packager . car-audio --overwrite --asar --platform=linux --arch=x64 --icon=icons/icon.png --prune=true --out=release-builds",
+    "release-mac": "webpack --config webpack.config.js --define process.env.NODE_ENV='\"production\"' --mode production && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "release-rpi": "webpack --config webpack.config.js --define process.env.NODE_ENV='\"production\"' --mode production && electron-packager . car-audio --overwrite --asar --platform=linux --arch=armv7l --icon=icons/icon.png --prune=true --out=release-builds && npm run create-debian-installer-rpi",
+    "release-linux": "webpack --config webpack.config.js --define process.env.NODE_ENV='\"production\"' --mode production && electron-packager . car-audio --overwrite --asar --platform=linux --arch=x64 --icon=icons/icon.png --prune=true --out=release-builds && npm run create-debian-installer",
     "create-debian-installer": "electron-installer-debian --src release-builds/car-audio-linux-x64/ --arch amd64 --config debian.json",
     "create-debian-installer-rpi": "electron-installer-debian --src release-builds/car-audio-linux-armv7l/ --arch armhf --config debian.json"
   },
