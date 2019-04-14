@@ -2,26 +2,28 @@ const { app, BrowserWindow } = require('electron');
 const appRoot = require('app-root-path');
 const { ipcMain } = require('electron');
 
-const config = require(__dirname + "/config.js");
+const configFile = require(__dirname + "/config.js");
 
 import VolumeControl from './modules/VolumeControl.js';
 
-let win
+const environment = process.env.NODE_ENV;
+
+// Use the config options for the current env
+const config = configFile[environment];
+
+let win;
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({
-    width: config.screen.width,
-    height: config.screen.height,
-    frame: false,
-    // titleBarStyle: 'hidden'
-  })
+  win = new BrowserWindow(config.browserWindowSettings)
 
   // load the index.html of the app.
-  win.loadFile(appRoot + '/dist/ui/index.html')
+  win.loadFile(__dirname + '/ui/index.html')
 
-  // Open the DevTools.
-  win.webContents.openDevTools()
+  // Open the DevTools in development mode
+  if (config.browserWindowSettings.devTools) {
+      win.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -49,4 +51,5 @@ app.on('activate', () => {
   }
 })
 
+// load modules 
 VolumeControl();

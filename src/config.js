@@ -1,6 +1,17 @@
 module.exports = {
-  screen: {
-    height: 480,
-    width: 800
-  },
+    development: {
+        browserWindowSettings: {
+            width: 800,
+            height: 480,
+            frame: false,
+            devTools: true
+        }
+    },
+    production: {
+        browserWindowSettings: {
+            frame: false,
+            kiosk: true,
+            devTools: false
+        }
+    }
 };
